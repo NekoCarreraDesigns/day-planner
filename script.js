@@ -1,3 +1,4 @@
+
 var currentTime = new Date();
 var day = currentTime.getDate();
 var month = currentTime.getMonth() + 1;
@@ -31,7 +32,7 @@ if (minute < 10) {
 if (second < 10) {
     second = "0" + second;
 }
-document.getElementById("currentDay").innerHTML = hour + ":" + minute + ":" + second + ap
+document.getElementById("currentDay").innerHTML = hour + ":" + minute + ":" + second + ap + ""
 t = setTimeout(500);
 
 
