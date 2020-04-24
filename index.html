@@ -13,7 +13,7 @@
     <title>My Day Planner</title>
 </head>
 
-<body>
+<body onload="startTime()">
     <header class="jumbotron">
         <h1 class="display-3">Kickass Day Planner</h1>
         <p class="lead">A simple orginizational app for scheduling your kickass day</p>
@@ -69,7 +69,52 @@
 
     </div>
     <script type="text/javascript" src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+        $(document).ready(function () {
+            var now = moment().format("DD MM YYYY");
+            $("currentDay").text(now);
+            var hourEl = moment().get("hour")
+            $(".hour").each(function () {
+                var timeIndex = parseInt($(this).attr('value'));
+                if (timeIndex < hourEl) {
+                    $(this).addClass("past");
+                }
+                if (timeIndex === hourEl) {
+                    $(this).addClass("present");
+                }
+                if (timeIndex > hourEl) {
+                    $(this).addClass("future");
+                }
+            });
+
+        });
+        var notes = [];
+        $(".saveBtn").click(function () {
+            var valueAttr = ("currentDay").val();
+            var notes = JSON.parse(window.localStorage.getItem("notes"));
+            alert("Save Button Clicked")
+        })
+        function copyText() {
+            var copied = $("notes");
+
+            copied.select();
+            document.execCommand("copy");
+
+            return copied;
+        }
+        $(".saveBtn").on("click", function () {
+            $("teaxtarea(name*=" + id + "").select();
+            document.execCommand("copy");
+            $("textarea").select();
+
+            document.execCommand("copy");
+
+
+        })
+
+
+
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 
