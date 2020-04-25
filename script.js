@@ -1,18 +1,18 @@
 
-//var currentTime = new Date();
-//var day = currentTime.getDate();
-//var month = currentTime.getMonth() + 1;
-//var year = currentTime.getFullYear();
-//if (day < 10) {
-//    day = "0" + day;
-//}
-//if (month < 10) {
-//  month = "0" + month;
-//}
-//var todayDate = month + "/" + day + "/" + year;
-//document.getElementById("currentDay").innerHTML = todayDate
+var currentTime = new Date();
+var day = currentTime.getDate();
+var month = currentTime.getMonth() + 1;
+var year = currentTime.getFullYear();
+if (day < 10) {
+    day = "0" + day;
+}
+if (month < 10) {
+    month = "0" + month;
+}
+var todayDate = month + "/" + day + "/" + year;
+document.getElementById("currentDay").innerText = todayDate
 function startTime() {
-    var currentTime = new Date()
+
     ap = "am";
     hour = currentTime.getHours();
     minute = currentTime.getMinutes();
@@ -37,6 +37,24 @@ function startTime() {
     document.getElementById("currentDay").innerHTML = hour + ":" + minute + ":" + second + ap + ""
     t = setTimeout(500);
 }
+var timeBlock = currentTime.hour
+function textBar() {
+    var timeIndex = parseInt(this).attr("value")
+    if (timeIndex < timeBlock) {
+        setStatusClass(document.timeBlock, past);
+    }
+    if (timeIndex === timeBlock) {
+        setStatusClass(document.textarea, present);
+    }
+    if (timeIndex > timeBlock) {
+        setStatusClass(document.textarea, future);
+    }
+}
+var notes = [];
+localStorage.setItem("notes", "user")
+console.log(notes)
+
+
 
 
 

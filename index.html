@@ -22,99 +22,54 @@
     <div class="container">
 
         <div class="row time-block">
-            <span value="1" class="col-md-2 hour"></span>
-            <textarea name="1" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="2" class="col-md-2 hour"></span>
-            <textarea name="2" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="3" class="col-md-2 hour"></span>
-            <textarea name="3" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="4" class="col-md-2 hour"></span>
-            <textarea name="4" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="5" class="col-md-2 hour"></span>
-            <textarea name="5" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="6" class="col-md-2 hour"></span>
-            <textarea name="6" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="7" class="col-md-2 hour"></span>
-            <textarea name="7" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="8" class="col-md-2 hour"></span>
-            <textarea name="8" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
-        </div>
-        <div class="row time-block">
-            <span value="9" class="col-md-2 hour"></span>
+            <span value="9" class="col-md-2 hour">9:00am</span>
             <textarea name="9" class="col-md-8"></textarea>
-            <button class="col-md-2 saveBtn py-3" id="1"><i class="fas fa-2x fa-save"></i></button>
+            <button class="col-md-2 saveBtn py-3" id="9"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="10" class="col-md-2 hour">10:00am</span>
+            <textarea name="10" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="10"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="11" class="col-md-2 hour">11:00am</span>
+            <textarea name="11" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="11"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="12" class="col-md-2 hour">12:00pm</span>
+            <textarea name="12" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="12"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="13" class="col-md-2 hour">1:00pm</span>
+            <textarea name="13" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="13"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="14" class="col-md-2 hour">2:00pm</span>
+            <textarea name="14" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="14"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="15" class="col-md-2 hour">3:00pm</span>
+            <textarea name="15" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="15"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="16" class="col-md-2 hour">4:00pm</span>
+            <textarea name="16" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="16"><i class="fas fa-2x fa-save"></i></button>
+        </div>
+        <div class="row time-block">
+            <span value="17" class="col-md-2 hour">5:00pm</span>
+            <textarea name="17" class="col-md-8"></textarea>
+            <button class="col-md-2 saveBtn py-3" id="17"><i class="fas fa-2x fa-save"></i></button>
         </div>
 
     </div>
     <script type="text/javascript" src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
-        $(document).ready(function () {
-            var now = moment().format("DD MM YYYY");
-            $("currentDay").text(now);
-            var hourEl = moment().get("hour")
-            $(".hour").each(function () {
-                var timeIndex = parseInt($(this).attr('value'));
-                if (timeIndex < hourEl) {
-                    $(this).addClass("past");
-                }
-                if (timeIndex === hourEl) {
-                    $(this).addClass("present");
-                }
-                if (timeIndex > hourEl) {
-                    $(this).addClass("future");
-                }
-            });
-
-        });
-        var notes = [];
-        $(".saveBtn").click(function () {
-            var valueAttr = ("currentDay").val();
-            var notes = JSON.parse(window.localStorage.getItem("notes"));
-            alert("Save Button Clicked")
-        })
-        function copyText() {
-            var copied = $("notes");
-
-            copied.select();
-            document.execCommand("copy");
-
-            return copied;
-        }
-        $(".saveBtn").on("click", function () {
-            $("teaxtarea(name*=" + id + "").select();
-            document.execCommand("copy");
-            $("textarea").select();
-
-            document.execCommand("copy");
-
-
-        })
-
-
-
-    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 
