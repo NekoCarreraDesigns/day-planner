@@ -13,7 +13,7 @@
     <title>My Day Planner</title>
 </head>
 
-<body onload="startTime()">
+<body>
     <header class="jumbotron">
         <h1 class="display-3">Kickass Day Planner</h1>
         <p class="lead">A simple orginizational app for scheduling your kickass day</p>
@@ -69,6 +69,18 @@
 
     </div>
     <script type="text/javascript" src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        $(".time-block").each(function () {
+            var elementTime = $(this).attr("data-time");
+            if (hours > elementTime) {
+                $(this).css("background-color", "red");
+            } else if (hours < elementTime) {
+                $(this).css("background-color", "green");
+            } else {
+                $(this).css("background-color", "grey");
+            }
+        })
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
