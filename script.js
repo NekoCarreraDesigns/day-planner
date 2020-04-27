@@ -14,10 +14,27 @@ var todayDate = month + "/" + day + "/" + year;
 document.getElementById("currentDay").innerHTML = todayDate;
 
 
+var notes = [];
+var marked_Notes = "notes"
+var blockTime = currentTime.hour
+var blockText
+
+function setBgColor(currentTime) {
+    blockTime = currentTime.split("")
+    blockText = textTime.split("")
+
+    if (blockTime < blockText) {
+        currentTime.addClass("past")
+    } else {
+        currentTime === blockTime
+        currentTime.addClass("present")
+    }
+    if (currentTime > blockTime) {
+        currentTime.addClass("future")
+    }
 
 
-
-var notes = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+}
 
 for (var i = 0; i < notes.length; i++) {
 
@@ -72,23 +89,23 @@ saveButton4.addEventListener("click", saveInput)
 saveButton5.addEventListener("click", saveInput)
 
 
-var timeBlock = document.getElementsByClassName("time-block")
-function saveInput() {
-    if (!inputLocalStorage()) {
-        return false;
+timeBlock = document.getElementsByClassName("time-block")
+function saveInput(pText, pId) {
+    nBlock = {
+        id: pId,
+        input: pText
     }
-    notes = timeBlock.value
-    localStorage["stored.notes"] = notes
+    for (var i = 0; i < marked_Notes.length; i++) {
+        if (marked_Notes[i].id === nBlock.id) {
 
-
-
+            localStorage.setItem(marked_Notes, JSON.stringify(notes));
+            return null;
+        }
+    }
+    marked_Notes.push(nBlock)
+    localStorage.setItem(marked_Notes, JSON.stringify(marked_Notes))
 }
-
-saveInput();
-
-function inputLocalStorage() {
-    return ("localStorage" in window) && window["localStorage"] !== null;
-}
+saveInput()
 
 
 
